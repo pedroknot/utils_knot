@@ -1,6 +1,14 @@
 import re
 
 
+def par(number: int) -> bool:
+    """Função que valida se número é par"""
+    try:
+        return number % 2 == 0
+    except (TypeError) as ex:
+        print(str(ex))
+    return False
+
 # funcao para retirar caracteres nao numericos
 def retira_formatacao(num_cpf):
     num_cpf_limpo= re.sub('[^0-9]', '', num_cpf)
@@ -41,3 +49,28 @@ def valida_cpf(num_cpf):
         return False
 
     return True
+
+
+def conversao_romana(numero):
+
+    inteiros = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+
+    romanos = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+
+    #exemplo:   numero = 20
+    try:
+        numero = int(numero)
+        i = 0
+        resultado = ""
+        while numero > 0: #20 maior que 0              |   10 maior que 0
+            if numero >= inteiros[i]: #20 >= 10        |   10 >= 10
+                resultado += romanos[i]
+                numero -= inteiros[i] #20 - 10         | 10 - 10
+            else:
+                i += 1
+                
+    except Exception as ex:
+        print(f'Function expects an integer: {ex}')
+        resultado = False
+
+    return resultado

@@ -22,7 +22,7 @@ except:
 
 setup(
     name='utils_knot',
-    version='1.0.1',
+    version='1.0.4',
     description='Exemplo setup.py',
     long_description=long_description,
     url='https://github.com/pedroknot/utils_knot',
